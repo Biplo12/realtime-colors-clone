@@ -5,16 +5,21 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { store } from 'store/store';
 
+import 'react-tooltip/dist/react-tooltip.css';
+
+import Header from '@/components/Layout/Header';
 import Main from '@/components/Main';
+
 export default function HomePage() {
   return (
-    <main>
-      <Head>
-        <title>Realtime colors clone</title>
-      </Head>
-      <Provider store={store}>
+    <Provider store={store}>
+      <main>
+        <Head>
+          <title>Realtime Colors - Clone</title>
+        </Head>
+        <Header />
         <Main />
-      </Provider>
-    </main>
+      </main>
+    </Provider>
   );
 }
