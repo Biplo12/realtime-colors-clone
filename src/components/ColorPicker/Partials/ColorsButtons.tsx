@@ -15,73 +15,71 @@ const ColorsButtons: React.FC = (): JSX.Element => {
   const colorPickerItems = [
     {
       label: 'Text',
-      isLocked: false,
-      btnBackgroundColor: colors.backgroundColor,
+      btnBackgroundColor: colors.backgroundColor.color,
       colorPickerComponent: (
         <SketchPicker
-          color={colors.textColor as string}
+          color={colors.textColor.color as string}
           onChangeComplete={(color) => onColorChange(color.hex, 'textColor')}
         />
       ),
+      isLocked: colors.textColor.isLocked,
     },
     {
       label: 'Background',
-      isLocked: false,
-      btnBackgroundColor: colors.backgroundColor,
+      btnBackgroundColor: colors.backgroundColor.color,
       colorPickerComponent: (
         <SketchPicker
-          color={colors.backgroundColor as string}
+          color={colors.backgroundColor.color as string}
           onChangeComplete={(color) =>
             onColorChange(color.hex, 'backgroundColor')
           }
         />
       ),
+      isLocked: colors.backgroundColor.isLocked,
     },
     {
       label: 'Primary',
-      isLocked: false,
-      btnBackgroundColor: colors.primaryColor,
-      btnTextColor: colors.backgroundColor,
+      btnBackgroundColor: colors.primaryColor.color,
       colorPickerComponent: (
         <SketchPicker
-          color={colors.primaryColor as string}
+          color={colors.primaryColor.color as string}
           onChangeComplete={(color) => onColorChange(color.hex, 'primaryColor')}
         />
       ),
+      isLocked: colors.primaryColor.isLocked,
     },
     {
       label: 'Secondary',
-      isLocked: false,
-      btnBackgroundColor: colors.secondaryColor,
+      btnBackgroundColor: colors.secondaryColor.color,
       colorPickerComponent: (
         <SketchPicker
-          color={colors.secondaryColor as string}
+          color={colors.secondaryColor.color as string}
           onChangeComplete={(color) =>
             onColorChange(color.hex, 'secondaryColor')
           }
         />
       ),
+      isLocked: colors.secondaryColor.isLocked,
     },
     {
       label: 'Accent',
-      isLocked: false,
-      btnBackgroundColor: colors.accentColor,
-      btnTextColor: colors.backgroundColor,
+      btnBackgroundColor: colors.accentColor.color,
       colorPickerComponent: (
         <SketchPicker
-          color={colors.accentColor as string}
+          color={colors.accentColor.color as string}
           onChangeComplete={(color) => onColorChange(color.hex, 'accentColor')}
         />
       ),
+      isLocked: colors.accentColor.isLocked,
     },
   ];
 
   return (
-    <>
+    <div className='flex flex-wrap gap-2'>
       {colorPickerItems.map((item, index) => (
         <ColorButton key={index} item={item} colors={colors} />
       ))}
-    </>
+    </div>
   );
 };
 export default ColorsButtons;

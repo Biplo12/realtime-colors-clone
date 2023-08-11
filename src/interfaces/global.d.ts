@@ -1,7 +1,22 @@
 declare interface IColors {
-  textColor: string | null;
-  backgroundColor: string | null;
-  primaryColor: string | null;
-  secondaryColor: string | null;
-  accentColor: string | null;
+  textColor: {
+    color: string | null;
+    isLocked: boolean;
+  };
+  backgroundColor: {
+    color: string | null;
+    isLocked: boolean;
+  };
+  primaryColor: {
+    color: string | null;
+    isLocked: boolean;
+  };
+  secondaryColor: {
+    color: string | null;
+    isLocked: boolean;
+  };
+  accentColor: {
+    color: string | null;
+    isLocked: boolean;
+  };
 }

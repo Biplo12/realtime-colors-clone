@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ColorsButtons from '@/components/ColorPicker/Partials/ColorsButtons';
+import DarkModeToggle from '@/components/ColorPicker/Partials/DarkModeToggle';
 import RandomColorsButton from '@/components/ColorPicker/Partials/RandomColorsButton';
 
 const ColorPickerBar: React.FC = (): JSX.Element => {
@@ -9,6 +10,7 @@ const ColorPickerBar: React.FC = (): JSX.Element => {
       <div className='flex h-full items-center justify-between gap-1.5'>
         <ColorsButtons />
         <RandomColorsButton />
+        <DarkModeToggle />
       </div>
     </div>
   );

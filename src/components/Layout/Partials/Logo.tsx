@@ -6,7 +6,10 @@ const Logo: React.FC = (): JSX.Element => {
   return (
     <div className='flex items-center justify-center gap-3'>
       <img src='/images/logo.png' alt='logo' className='h-10 w-10' />
-      <h1 className='text-2xl font-bold' style={{ color: textColor as string }}>
+      <h1
+        className='text-2xl font-bold'
+        style={{ color: textColor.color as string }}
+      >
         Realtime Colors Clone
       </h1>
     </div>

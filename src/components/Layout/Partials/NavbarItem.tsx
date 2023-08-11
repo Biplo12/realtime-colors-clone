@@ -12,7 +12,10 @@ const NavbarItem: React.FC<INavbarItemProps> = ({
 }): JSX.Element => {
   const textColor = useAppSelector((state) => state.global.colors.textColor);
   return (
-    <li className='flex items-center' style={{ color: textColor as string }}>
+    <li
+      className='flex items-center'
+      style={{ color: textColor.color as string }}
+    >
       <a
         href='#'
         className='flex items-center gap-3 duration-100 ease-linear hover:opacity-70'

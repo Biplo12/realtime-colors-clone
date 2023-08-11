@@ -5,9 +5,7 @@ import PrimaryButton from '@/components/common/PrimaryButton';
 
 import ScrollIcon from '~/svg/scroll.svg';
 const HeroHeader: React.FC = (): JSX.Element => {
-  const backgroundColor = useAppSelector(
-    (state) => state.global.colors.backgroundColor
-  );
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   const primaryColor = useAppSelector(
     (state) => state.global.colors.primaryColor
   );
@@ -30,17 +28,17 @@ const HeroHeader: React.FC = (): JSX.Element => {
       <div className='flex justify-center gap-3'>
         <PrimaryButton
           label='Get Started'
-          textColor={backgroundColor as string}
-          backgroundColor={primaryColor as string}
+          textColor={isDarkMode ? '#fff' : '#000'}
+          backgroundColor={primaryColor.color as string}
         />
         <PrimaryButton
           label='How does it work?'
-          textColor={textColor as string}
-          backgroundColor={secondaryColor as string}
+          textColor={isDarkMode ? '#fff' : '#000'}
+          backgroundColor={secondaryColor.color as string}
         />
       </div>
       <div className='text-md flex items-center gap-3'>
-        <ScrollIcon className='h-10 w-10' stroke={textColor as string} />
+        <ScrollIcon className='h-10 w-10' stroke={textColor.color as string} />
         <p>Scroll to see more sections</p>
       </div>
     </div>
