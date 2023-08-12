@@ -1,5 +1,5 @@
 import React from 'react';
-import { closeColorPickers, openColorPicker } from 'state/globalSlice';
+import { openColorPicker } from 'state/globalSlice';
 import { useAppDispatch, useAppSelector } from 'store/store-hooks';
 
 import LockColorButton from '@/components/ColorPicker/Partials/LockColorButton';
@@ -9,13 +9,12 @@ interface IColorButtonProps {
     label: string;
     btnBackgroundColor: string | null;
     colorPickerComponent: JSX.Element;
-    isLocked: boolean;
   };
   colors: IColors;
 }
 
 const ColorButton: React.FC<IColorButtonProps> = ({ item }): JSX.Element => {
-  const { label, btnBackgroundColor, colorPickerComponent, isLocked } = item;
+  const { label, btnBackgroundColor, colorPickerComponent } = item;
   const dispatch = useAppDispatch();
   const colorPickers = useAppSelector((state) => state.global.colorPickers);
   const textColor = useAppSelector(
@@ -23,18 +22,14 @@ const ColorButton: React.FC<IColorButtonProps> = ({ item }): JSX.Element => {
   );
 
   const handleOpenColorPicker = (label: string) => {
-    if (isLocked) return;
-    const isOpened =
-      colorPickers[label.toLowerCase() as keyof typeof colorPickers];
-    if (isOpened) {
-      dispatch(closeColorPickers());
-      return;
-    }
-    dispatch(openColorPicker(label));
+    dispatch(openColorPicker(`${label.toLowerCase()}Color`));
   };
+
   return (
     <div className='relative flex flex-col items-center justify-center'>
-      {colorPickers[label.toLowerCase() as keyof typeof colorPickers] && (
+      {colorPickers[
+        `${label.toLowerCase()}Color` as keyof typeof colorPickers
+      ] && (
         <div className='absolute bottom-16 bg-black bg-opacity-50'>
           {colorPickerComponent}
         </div>
@@ -53,7 +48,7 @@ const ColorButton: React.FC<IColorButtonProps> = ({ item }): JSX.Element => {
           {label}
         </p>
       </button>
-      <LockColorButton isLocked={item.isLocked} label={label} />
+      <LockColorButton label={label} />
     </div>
   );
 };

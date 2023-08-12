@@ -1,27 +1,11 @@
-import React, { useEffect } from 'react';
-import { closeColorPickers, randomizeColors } from 'state/globalSlice';
-import { useAppDispatch, useAppSelector } from 'store/store-hooks';
+import React from 'react';
 
-import ColorPickerBar from '@/components/ColorPicker/ColorPickerBar';
+import useOnLoad from '@/hooks/useOnload';
+
 import Hero from '@/components/Hero/Hero';
+import ToolBar from '@/components/ToolBar/ToolBar';
 const Main: React.FC = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-  const colors = useAppSelector((state) => state.global.colors);
-  const colorPickers = useAppSelector((state) => state.global.colorPickers);
-
-  const isColorPickerOpen = Object.values(colorPickers).some(
-    (colorPicker) => colorPicker
-  );
-
-  useEffect(() => {
-    dispatch(randomizeColors());
-  }, [dispatch]);
-
-  const handleCloseColorPickers = () => {
-    if (isColorPickerOpen) {
-      dispatch(closeColorPickers());
-    }
-  };
+  const { colors, handleCloseColorPickers } = useOnLoad();
 
   return (
     <div
@@ -31,7 +15,7 @@ const Main: React.FC = (): JSX.Element => {
         color: colors.textColor.color as string,
       }}
     >
-      <ColorPickerBar />
+      <ToolBar />
       <div
         className='flex h-full w-full flex-col items-center justify-center'
         onClick={handleCloseColorPickers}

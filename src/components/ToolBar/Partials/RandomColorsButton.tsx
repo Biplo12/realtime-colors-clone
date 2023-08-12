@@ -18,7 +18,7 @@ const RandomColorsButton: React.FC = (): JSX.Element => {
           <p className='font-bold'>
             Randomize
             <br />
-            <span className='font-normal text-gray-600'>(colors)</span>
+            <span className='font-normal text-gray-400'>(colors)</span>
           </p>
         </div>
       </Tooltip>
@@ -26,7 +26,7 @@ const RandomColorsButton: React.FC = (): JSX.Element => {
         onClick={handleRandomizeColors}
         className='rounded-md bg-white px-4 py-2'
         data-tip
-        data-for='randomize-colors'
+        data-tooltip-id='randomize-colors'
       >
         <Reroll className='h-10 w-10' />
       </button>

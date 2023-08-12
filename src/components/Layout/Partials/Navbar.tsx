@@ -10,9 +10,6 @@ const Navbar: React.FC = (): JSX.Element => {
   const primaryColor = useAppSelector(
     (state) => state.global.colors.primaryColor
   );
-  const backgroundColor = useAppSelector(
-    (state) => state.global.colors.backgroundColor
-  );
   const navlinks = [
     {
       label: 'Try Figma plugin',
@@ -35,7 +32,7 @@ const Navbar: React.FC = (): JSX.Element => {
           <NavbarItem key={index} label={link.label} icon={link.icon} />
         ))}
         <PrimaryButton
-          textColor={backgroundColor.color as string}
+          textColor={textColor.color as string}
           backgroundColor={primaryColor.color as string}
           label='Subscribe'
         />

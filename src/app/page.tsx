@@ -13,10 +13,10 @@ import Main from '@/components/Main';
 export default function HomePage() {
   return (
     <Provider store={store}>
+      <Head>
+        <title>Realtime Colors - Clone</title>
+      </Head>
       <main>
-        <Head>
-          <title>Realtime Colors - Clone</title>
-        </Head>
         <Header />
         <Main />
       </main>

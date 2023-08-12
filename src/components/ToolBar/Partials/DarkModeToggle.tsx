@@ -13,12 +13,12 @@ const DarkModeToggle: React.FC = (): JSX.Element => {
   };
   return (
     <>
-      <Tooltip id='darkmodeToggle' place='top'>
+      <Tooltip id='darkmode-toggle' place='top'>
         <div className='text-center text-xs'>
           <p className='font-bold'>
             Dark/Light
             <br />
-            <span className='font-normal text-gray-600'>(CTRL + Q)</span>
+            <span className='font-normal text-gray-400'>(CTRL + Q)</span>
           </p>
         </div>
       </Tooltip>
@@ -26,7 +26,7 @@ const DarkModeToggle: React.FC = (): JSX.Element => {
         onClick={handleToggleDarkMode}
         className='rounded-md bg-white px-4 py-2'
         data-tip
-        data-for='darkmodeToggle'
+        data-tooltip-id='darkmode-toggle'
         style={{
           backgroundColor: isDarkMode ? '#fff' : '#000',
         }}

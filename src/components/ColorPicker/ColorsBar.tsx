@@ -4,7 +4,8 @@ import { setColor } from 'state/globalSlice';
 import { useAppDispatch, useAppSelector } from 'store/store-hooks';
 
 import ColorButton from '@/components/ColorPicker/Partials/ColorButton';
-const ColorsButtons: React.FC = (): JSX.Element => {
+
+const ColorsBar: React.FC = (): JSX.Element => {
   const colors = useAppSelector((state) => state.global.colors);
   const dispatch = useAppDispatch();
 
@@ -22,7 +23,6 @@ const ColorsButtons: React.FC = (): JSX.Element => {
           onChangeComplete={(color) => onColorChange(color.hex, 'textColor')}
         />
       ),
-      isLocked: colors.textColor.isLocked,
     },
     {
       label: 'Background',
@@ -35,7 +35,6 @@ const ColorsButtons: React.FC = (): JSX.Element => {
           }
         />
       ),
-      isLocked: colors.backgroundColor.isLocked,
     },
     {
       label: 'Primary',
@@ -46,7 +45,6 @@ const ColorsButtons: React.FC = (): JSX.Element => {
           onChangeComplete={(color) => onColorChange(color.hex, 'primaryColor')}
         />
       ),
-      isLocked: colors.primaryColor.isLocked,
     },
     {
       label: 'Secondary',
@@ -59,7 +57,6 @@ const ColorsButtons: React.FC = (): JSX.Element => {
           }
         />
       ),
-      isLocked: colors.secondaryColor.isLocked,
     },
     {
       label: 'Accent',
@@ -70,7 +67,6 @@ const ColorsButtons: React.FC = (): JSX.Element => {
           onChangeComplete={(color) => onColorChange(color.hex, 'accentColor')}
         />
       ),
-      isLocked: colors.accentColor.isLocked,
     },
   ];
 
@@ -82,4 +78,4 @@ const ColorsButtons: React.FC = (): JSX.Element => {
     </div>
   );
 };
-export default ColorsButtons;
+export default ColorsBar;

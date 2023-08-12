@@ -5,12 +5,10 @@ import { useAppDispatch, useAppSelector } from 'store/store-hooks';
 import LockIcon from '~/svg/lock.svg';
 
 interface ILockColorButtonProps {
-  isLocked: boolean;
   label: string;
 }
 
 const LockColorButton: React.FC<ILockColorButtonProps> = ({
-  isLocked,
   label,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -20,16 +18,22 @@ const LockColorButton: React.FC<ILockColorButtonProps> = ({
   const handleChangeLockStatus = () => {
     dispatch(changeLockStatus(`${label.toLocaleLowerCase()}Color`));
   };
+  const isLocked = useAppSelector(
+    (state) =>
+      state.global.colors[`${label.toLocaleLowerCase()}Color` as keyof IColors]
+        .isLocked
+  );
   return (
     <button
       className='absolute bottom-2 right-2'
       onClick={handleChangeLockStatus}
     >
       <LockIcon
-        className={`h-4 w-4 ${isLocked ? 'opacity-50' : 'opacity-100'}`}
+        className={`h-4 w-4 ${!isLocked ? 'opacity-50' : 'opacity-100'}`}
         stroke={textColor}
       />
     </button>
   );
 };
+
 export default LockColorButton;

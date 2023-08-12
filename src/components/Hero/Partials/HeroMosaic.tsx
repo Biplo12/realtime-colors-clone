@@ -21,14 +21,14 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='163'
         height='60'
         rx='10'
-        fill={textColor as string}
+        fill={textColor.color as string}
       />
       <rect
         x='424'
         width='193'
         height='60'
         rx='10'
-        fill={secondaryColor as string}
+        fill={secondaryColor.color as string}
       />
       <rect
         x='424'
@@ -36,7 +36,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='193'
         height='175'
         rx='10'
-        fill={secondaryColor as string}
+        fill={secondaryColor.color as string}
       />
       <rect
         opacity='0.2'
@@ -45,7 +45,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='193'
         height='79'
         rx='10'
-        fill={primaryColor as string}
+        fill={primaryColor.color as string}
       />
       <rect
         x='255'
@@ -53,7 +53,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='362'
         height='18'
         rx='9'
-        fill={backgroundColor as string}
+        fill={backgroundColor.color as string}
       />
       <rect
         x='80'
@@ -61,7 +61,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='166'
         height='65'
         rx='10'
-        fill={backgroundColor as string}
+        fill={backgroundColor.color as string}
       />
       <rect
         x='255'
@@ -69,7 +69,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='160'
         height='40'
         rx='10'
-        fill={textColor as string}
+        fill={textColor.color as string}
       />
       <rect
         opacity='0.05'
@@ -78,7 +78,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='160'
         height='80'
         rx='10'
-        fill={textColor as string}
+        fill={textColor.color as string}
       />
       <rect
         opacity='0.05'
@@ -87,7 +87,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='160'
         height='80'
         rx='10'
-        fill={textColor as string}
+        fill={textColor.color as string}
       />
       <rect
         x='80'
@@ -95,7 +95,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='335'
         height='324'
         rx='10'
-        fill={primaryColor as string}
+        fill={primaryColor.color as string}
       />
       <rect
         x='80'
@@ -103,7 +103,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='166'
         height='169'
         rx='10'
-        fill={textColor as string}
+        fill={textColor.color as string}
       />
       <rect
         x='424'
@@ -111,7 +111,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='193'
         height='129'
         rx='10'
-        fill={accentColor as string}
+        fill={accentColor.color as string}
       />
       <rect
         x='626'
@@ -119,7 +119,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='26'
         height='154'
         rx='10'
-        fill={primaryColor as string}
+        fill={primaryColor.color as string}
       />
       <rect
         x='424'
@@ -127,7 +127,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='91'
         height='140'
         rx='10'
-        fill={backgroundColor as string}
+        fill={backgroundColor.color as string}
       />
       <rect
         x='524'
@@ -135,7 +135,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='93'
         height='140'
         rx='10'
-        fill={backgroundColor as string}
+        fill={backgroundColor.color as string}
       />
       <rect
         opacity='0.05'
@@ -143,14 +143,14 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='26'
         height='480'
         rx='10'
-        fill={textColor as string}
+        fill={textColor.color as string}
       />
       <rect
         x='173'
         width='242'
         height='60'
         rx='10'
-        fill={backgroundColor as string}
+        fill={backgroundColor.color as string}
       />
       <rect
         x='1'
@@ -158,7 +158,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='70'
         height='157'
         rx='10'
-        fill={backgroundColor as string}
+        fill={backgroundColor.color as string}
       />
       <rect
         opacity='0.05'
@@ -167,7 +167,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='70'
         height='259'
         rx='10'
-        fill={textColor as string}
+        fill={textColor.color as string}
       />
       <rect
         x='1'
@@ -175,7 +175,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
         width='70'
         height='142'
         rx='10'
-        fill={secondaryColor as string}
+        fill={secondaryColor.color as string}
       />
     </svg>
   );

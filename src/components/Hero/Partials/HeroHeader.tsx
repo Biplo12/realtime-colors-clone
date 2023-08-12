@@ -12,7 +12,6 @@ const HeroHeader: React.FC = (): JSX.Element => {
   const secondaryColor = useAppSelector(
     (state) => state.global.colors.secondaryColor
   );
-  const textColor = useAppSelector((state) => state.global.colors.textColor);
   return (
     <div className='flex h-full flex-col items-start justify-center gap-10'>
       <h1 className='text-6xl font-bold'>
@@ -38,7 +37,10 @@ const HeroHeader: React.FC = (): JSX.Element => {
         />
       </div>
       <div className='text-md flex items-center gap-3'>
-        <ScrollIcon className='h-10 w-10' stroke={textColor.color as string} />
+        <ScrollIcon
+          className='h-10 w-10'
+          stroke={primaryColor.color as string}
+        />
         <p>Scroll to see more sections</p>
       </div>
     </div>
