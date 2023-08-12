@@ -37,15 +37,14 @@ const colorSlice = createSlice({
           state.colors[key as keyof typeof state.colors].color = color;
         }
       }
-      state.lastActions.push({
-        type: 'toggleDarkMode',
-        value: { ...state.colors, isDarkMode },
-      });
     },
     setColor: (state, action) => {
       const { label, color } = action.payload;
-      state.colors[label as keyof typeof state.colors].color = color;
-      state.lastActions.push({ type: label, value: color });
+      if (typeof action.payload === 'object') {
+        state.colors = action.payload;
+      } else {
+        state.colors[label as keyof typeof state.colors].color = color;
+      }
     },
     randomizeColors: (state) => {
       const isDarkMode = state.isDarkMode;
@@ -58,10 +57,10 @@ const colorSlice = createSlice({
       }
     },
     undoLastAction: (state) => {
-      state.lastActions.pop();
+      return state;
     },
     redoLastAction: (state) => {
-      state.lastActions.push(state.lastActions[state.lastActions.length - 1]);
+      return state;
     },
     openColorPicker: (state, action) => {
       for (const key in state.colorPickers) {

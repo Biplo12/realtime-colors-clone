@@ -4,6 +4,7 @@ import * as React from 'react';
 import '@/styles/globals.css';
 
 import { siteConfig } from '@/constant/config';
+import { ReduxProvider } from '@/utils/ReduxProvider';
 export const metadata: Metadata = {
   title: {
     default: siteConfig.title,
@@ -35,7 +36,9 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <ReduxProvider>{children}</ReduxProvider>
+      </body>
     </html>
   );
 }
