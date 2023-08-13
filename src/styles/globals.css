@@ -5,3 +5,13 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+.underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--accent);
+}

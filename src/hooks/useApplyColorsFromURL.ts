@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
-import { setColor } from 'state/globalSlice';
+import { setColors } from 'state/globalSlice';
 import { useAppDispatch } from 'store/store-hooks';
 
 const useApplyColorsFromURL = () => {
@@ -23,13 +23,12 @@ const useApplyColorsFromURL = () => {
     const colorsObject = colorsArray.reduce((acc, color, index) => {
       acc[colorsIndexes[index]] = {
         color: `#${color}`,
-        label: colorsIndexes[index],
+        isLocked: false,
       };
       return acc;
-    }, {} as Record<string, { color: string; label: string }>);
-
-    for (const color in colorsObject) {
-      dispatch(setColor(colorsObject[color]));
+    }, {} as Record<string, { color: string; isLocked: boolean }>);
+    if (Object.keys(colorsObject).length) {
+      dispatch(setColors(colorsObject));
     }
   }, []);
 };

@@ -28,10 +28,10 @@ const DarkModeToggle: React.FC = (): JSX.Element => {
         data-tip
         data-tooltip-id='darkmode-toggle'
         style={{
-          backgroundColor: isDarkMode ? '#fff' : '#000',
+          backgroundColor: !isDarkMode ? '#fff' : '#000',
         }}
       >
-        {isDarkMode ? (
+        {!isDarkMode ? (
           <SunIcon className='h-10 w-10' />
         ) : (
           <MoonIcon className='h-10 w-10' />

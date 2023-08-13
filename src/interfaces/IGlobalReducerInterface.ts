@@ -1,30 +1,6 @@
 type TLastAction = {
   type: string;
-  value:
-    | string
-    | {
-        textColor: {
-          color: string | null;
-          isLocked: boolean;
-        };
-        backgroundColor: {
-          color: string | null;
-          isLocked: boolean;
-        };
-        primaryColor: {
-          color: string | null;
-          isLocked: boolean;
-        };
-        secondaryColor: {
-          color: string | null;
-          isLocked: boolean;
-        };
-        accentColor: {
-          color: string | null;
-          isLocked: boolean;
-        };
-        isDarkMode: boolean;
-      };
+  value: IColors;
 };
 
 export default interface IGlobalReducerInterface {

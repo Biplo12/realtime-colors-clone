@@ -1,9 +1,11 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
+import dialogSlice from 'state/dialogSlice';
 import globalSlice from 'state/globalSlice';
 
 export const store = configureStore({
   reducer: {
     global: globalSlice,
+    dialog: dialogSlice,
   },
 });
 

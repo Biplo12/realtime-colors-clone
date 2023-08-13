@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from 'store/store';
 
 import IGlobalReducerInterface from '@/interfaces/IGlobalReducerInterface';
+import { randomColor } from '@/utils/colorUtils';
 
 const initialState: IGlobalReducerInterface = {
   colors: {
@@ -28,36 +29,45 @@ const colorSlice = createSlice({
   reducers: {
     toggleDarkMode: (state) => {
       state.isDarkMode = !state.isDarkMode;
-      const { isDarkMode } = state;
-
+      const isDarkMode = state.isDarkMode;
+      const randomColors = randomColor(isDarkMode);
       for (const key in state.colors) {
         if (!state.colors[key as keyof typeof state.colors].isLocked) {
-          const color =
-            randomColor(isDarkMode)[key as keyof typeof state.colors];
-          state.colors[key as keyof typeof state.colors].color = color;
+          state.colors[key as keyof typeof state.colors].color =
+            randomColors[key as keyof typeof state.colors];
         }
       }
     },
     setColor: (state, action) => {
-      const { label, color } = action.payload;
-      if (typeof action.payload === 'object') {
-        state.colors = action.payload;
-      } else {
-        state.colors[label as keyof typeof state.colors].color = color;
-      }
+      const { label, color } = action.payload || {};
+      state.colors[label as keyof typeof state.colors].color = color;
+    },
+    setColors: (state, action) => {
+      state.colors = action.payload;
     },
     randomizeColors: (state) => {
       const isDarkMode = state.isDarkMode;
       for (const key in state.colors) {
         if (!state.colors[key as keyof typeof state.colors].isLocked) {
-          const color =
+          state.colors[key as keyof typeof state.colors].color =
             randomColor(isDarkMode)[key as keyof typeof state.colors];
-          state.colors[key as keyof typeof state.colors].color = color;
         }
       }
+      state.lastActions.push({
+        type: 'randomizeColors',
+        value: { ...state.colors },
+      });
     },
     undoLastAction: (state) => {
-      return state;
+      const lastAction = state.lastActions.pop();
+      if (lastAction) {
+        const previousColors = { ...state.colors };
+        state.colors = lastAction.value;
+        state.lastActions.push({
+          type: 'undoLastAction',
+          value: previousColors,
+        });
+      }
     },
     redoLastAction: (state) => {
       return state;
@@ -93,43 +103,7 @@ export const {
   openColorPicker,
   closeColorPickers,
   changeLockStatus,
+  setColors,
 } = actions;
 export const selectGlobal = (state: RootState) => state.global;
 export default reducer;
-
-const hslToHex = (h: number, s: number, l: number) => {
-  l /= 100;
-  const a = (s * Math.min(l, 1 - l)) / 100;
-  const f = (n: number) => {
-    const k = (n + h / 30) % 12;
-    const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-    return Math.round(255 * color)
-      .toString(16)
-      .padStart(2, '0');
-  };
-  return `#${f(0)}${f(8)}${f(4)}`;
-};
-
-const randomColor = (isDarkMode: boolean) => {
-  const hue = Math.floor(Math.random() * 360);
-  const saturation = Math.floor(Math.random() * 30) + 50;
-  let lightness = Math.floor(Math.random() * 20) + 40;
-
-  if (isDarkMode) {
-    lightness = Math.floor(Math.random() * 20) + 40 - 25;
-  } else {
-    lightness = Math.floor(Math.random() * 20) + 40 + 25;
-  }
-
-  return {
-    backgroundColor: hslToHex(
-      (hue + 180) % 360,
-      saturation,
-      isDarkMode ? 10 : 90
-    ),
-    textColor: isDarkMode ? '#fff' : '#000',
-    primaryColor: hslToHex(hue, saturation, lightness),
-    secondaryColor: hslToHex((hue + 180) % 360, saturation, lightness),
-    accentColor: hslToHex((hue + 60) % 360, saturation, lightness),
-  };
-};

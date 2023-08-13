@@ -16,15 +16,17 @@ const useOnLoad = () => {
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   const colorsQuery = params.get('colors');
-
+  const areColorsNull = Object.values(colors).some(
+    (color) => color.color === null
+  );
   useUpdateURL();
   useApplyColorsFromURL();
 
   useEffect(() => {
-    if (!colorsQuery) {
+    if (!colorsQuery && areColorsNull) {
       dispatch(randomizeColors());
     }
-  }, [colorsQuery, dispatch]);
+  }, [areColorsNull, colorsQuery, dispatch]);
 
   const handleCloseColorPickers = () => {
     if (isColorPickerOpen) {
