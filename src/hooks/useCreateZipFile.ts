@@ -1,6 +1,8 @@
 import JSZip from 'jszip';
 import { useAppSelector } from 'store/store-hooks';
 
+import { hexToRgb } from '@/utils/colorUtils';
+
 const BASE_URL = 'https://realtimecolors.com';
 
 const useCreateZipFile = () => {
@@ -41,11 +43,22 @@ const useCreateZipFile = () => {
     const zipFile = new JSZip();
     const txtFile = `Your selected colors:
 
-Text: ${colors.textColor.color}
-Background: ${colors.backgroundColor.color}
-Primary: ${colors.primaryColor.color}
-Secondary: ${colors.secondaryColor.color}
-Accent: ${colors.accentColor.color}
+Text: ${colors.textColor.color} (${hexToRgb(colors.textColor.color as string)})
+Background: ${colors.backgroundColor.color} (${hexToRgb(
+      colors.backgroundColor.color as string
+    )})
+
+Primary: ${colors.primaryColor.color} (${hexToRgb(
+      colors.primaryColor.color as string
+    )})
+
+Secondary: ${colors.secondaryColor.color} (${hexToRgb(
+      colors.secondaryColor.color as string
+    )})
+Accent: ${colors.accentColor.color} (${hexToRgb(
+      colors.accentColor.color as string
+    )})
+
 
 Realtime Colors link for selected colors: ${BASE_URL}/?colors=${colorsAsUrl}
 
