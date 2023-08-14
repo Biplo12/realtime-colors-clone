@@ -14,7 +14,7 @@ const DialogController: React.FC = (): JSX.Element => {
       case 'EXPORT_DIALOG':
         return <ExportDialog />;
       default:
-        return <div>DialogController</div>;
+        return;
     }
   };
   return (

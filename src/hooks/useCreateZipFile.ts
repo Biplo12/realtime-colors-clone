@@ -41,22 +41,27 @@ const useCreateZipFile = () => {
 
   const handleDownloadAsZip = async (fileName: string) => {
     const zipFile = new JSZip();
+    const formatRgb = (rgb: { r: number; g: number; b: number }) =>
+      `RGB: ${rgb.r}, ${rgb.g}, ${rgb.b}`;
+
     const txtFile = `Your selected colors:
 
-Text: ${colors.textColor.color} (${hexToRgb(colors.textColor.color as string)})
-Background: ${colors.backgroundColor.color} (${hexToRgb(
-      colors.backgroundColor.color as string
+Text: ${colors.textColor.color} (${formatRgb(
+      hexToRgb(colors.textColor.color as string)
+    )})
+Background: ${colors.backgroundColor.color} (${formatRgb(
+      hexToRgb(colors.backgroundColor.color as string)
     )})
 
-Primary: ${colors.primaryColor.color} (${hexToRgb(
-      colors.primaryColor.color as string
+Primary: ${colors.primaryColor.color} (${formatRgb(
+      hexToRgb(colors.primaryColor.color as string)
     )})
 
-Secondary: ${colors.secondaryColor.color} (${hexToRgb(
-      colors.secondaryColor.color as string
+Secondary: ${colors.secondaryColor.color} (${formatRgb(
+      hexToRgb(colors.secondaryColor.color as string)
     )})
-Accent: ${colors.accentColor.color} (${hexToRgb(
-      colors.accentColor.color as string
+Accent: ${colors.accentColor.color} (${formatRgb(
+      hexToRgb(colors.accentColor.color as string)
     )})
 
 

@@ -18,14 +18,14 @@ const SelectExportType: React.FC<ISelectExportTypeProps> = ({
 
   return (
     <div>
-      <div className='flex items-center justify-center gap-3'>
+      <div className='flex items-center justify-center gap-6'>
         {exportTypes.map((item, index) => {
           return (
             <button
               key={index}
-              className={`relative flex min-h-[40px] items-center justify-center px-2 transition-all duration-300 ease-in-out
-                  ${exportType === index && 'border-black'}
-              `}
+              className={`relative flex min-h-[40px] items-center justify-center transition-all duration-300 ease-in-out ${
+                exportType === index && 'border-black'
+              }`}
               onClick={() => handleChangeExportType(index)}
             >
               {exportType === index ? (

@@ -1,6 +1,8 @@
 import React from 'react';
 
-import DownloadZip from '@/components/Dialogs/ExportDialog/Partials/DownloadZip';
+import DownloadZip from '@/components/Dialogs/ExportDialog/Partials/DownloadZip/DownloadZip';
+import ExportCSS from '@/components/Dialogs/ExportDialog/Partials/ExportCSS/ExportCSS';
+import ExportCSV from '@/components/Dialogs/ExportDialog/Partials/ExportCSV/ExportCSV';
 
 interface IExportTypeContentProps {
   exportType: number;
@@ -17,34 +19,18 @@ const ExportTypeContent: React.FC<IExportTypeContentProps> = ({
     csv: 4,
   };
 
-  const css = () => {
-    return <div>css</div>;
-  };
-
-  const scss = () => {
-    return <div>scss</div>;
-  };
-
-  const tailwindcss = () => {
-    return <div>tailwindcss</div>;
-  };
-
-  const csv = () => {
-    return <div>csv</div>;
-  };
-
   const exportTypeController = () => {
     switch (exportType) {
       case exportTypeMap.zip:
         return <DownloadZip />;
       case exportTypeMap.css:
-        return css();
+        return <ExportCSS exportType='css' />;
       case exportTypeMap.scss:
-        return scss();
+        return <ExportCSS exportType='scss' />;
       case exportTypeMap.tailwindcss:
-        return tailwindcss();
+        return <ExportCSS exportType='tailwindcss' />;
       case exportTypeMap.csv:
-        return csv();
+        return <ExportCSV />;
       default:
         return;
     }

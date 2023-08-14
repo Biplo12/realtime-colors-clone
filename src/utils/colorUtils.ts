@@ -65,6 +65,10 @@ export const hexToHsl = (hex: string) => {
     }
   }
 
+  if (isNaN(h) || isNaN(s) || isNaN(l)) {
+    return { h: 0, s: 0, l: 0 };
+  }
+
   return {
     h: Math.round(h * 360),
     s: Math.round(s * 100),
@@ -76,6 +80,10 @@ export const hexToRgb = (hex: string) => {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
+
+  if (isNaN(r) || isNaN(g) || isNaN(b)) {
+    return { r: 0, g: 0, b: 0 };
+  }
 
   return { r, g, b };
 };
