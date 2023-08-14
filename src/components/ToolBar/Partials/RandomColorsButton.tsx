@@ -24,7 +24,7 @@ const RandomColorsButton: React.FC = (): JSX.Element => {
       </Tooltip>
       <button
         onClick={handleRandomizeColors}
-        className='rounded-md bg-white px-4 py-2'
+        className='h-[65px] rounded-md bg-white px-4 py-2'
         data-tip
         data-tooltip-id='randomize-colors'
       >

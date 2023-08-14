@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAppSelector } from 'store/store-hooks';
 
-import ExportCSVButton from '@/components/Dialogs/ExportDialog/Partials/ExportCSV/ExportCSVButton';
-import ExportCSVInput from '@/components/Dialogs/ExportDialog/Partials/ExportCSV/ExportCSVInput';
+import CopyButton from '@/components/common/CopyButton';
+import ExportInput from '@/components/common/ExportInput';
 const ExportCSV: React.FC = (): JSX.Element => {
   const colors = useAppSelector((state) => state.global.colors);
   const placeholderWithHash = Object.keys(colors).map((color) => {
@@ -13,14 +13,19 @@ const ExportCSV: React.FC = (): JSX.Element => {
   });
 
   return (
-    <div className='mt-6 flex w-full flex-col items-start justify-center gap-4 rounded-lg bg-white'>
-      <ExportCSVInput
+    <div className='mt-2 flex w-full flex-col items-start justify-center gap-4 rounded-lg bg-white'>
+      <ExportInput
         placeholder={placeholderWithoutHash}
         label='Without #: '
+        value={placeholderWithoutHash.join('\n')}
       />
-      <ExportCSVButton csvText={placeholderWithoutHash} />
-      <ExportCSVInput placeholder={placeholderWithHash} label='With #: ' />
-      <ExportCSVButton csvText={placeholderWithHash} />
+      <CopyButton text={placeholderWithoutHash.join('\n')} />
+      <ExportInput
+        placeholder={placeholderWithHash}
+        label='With #: '
+        value={placeholderWithHash.join('\n')}
+      />
+      <CopyButton text={placeholderWithHash.join('\n')} />
     </div>
   );
 };

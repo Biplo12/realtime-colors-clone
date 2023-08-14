@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Tooltip } from 'react-tooltip';
+
+import useCopyToClipboard from '@/hooks/useCopyToClipboard';
 
 import ShareIcon from '~/svg/share.svg';
 
 const ShareUrl: React.FC = (): JSX.Element => {
-  const [tooltip, setTooltip] = useState('share-link');
-
-  const handleCopyUrl = () => {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url);
-    setTooltip('share-link-copied');
-    setTimeout(() => {
-      setTooltip('share-link');
-    }, 2000);
-  };
+  const { isCopied, handleCopyToClipboard } = useCopyToClipboard();
+  const url = window.location.href;
 
   return (
     <>
@@ -21,11 +15,10 @@ const ShareUrl: React.FC = (): JSX.Element => {
         id='share-link'
         place='top'
         style={{
-          backgroundColor:
-            tooltip === 'share-link-copied' ? '#18AC7A' : '#333333',
+          backgroundColor: isCopied ? '#18AC7A' : '#333333',
         }}
       >
-        {tooltip === 'share-link' && (
+        {!isCopied && (
           <div className='text-center text-xs'>
             <p className='font-bold'>
               Share link
@@ -34,7 +27,7 @@ const ShareUrl: React.FC = (): JSX.Element => {
             </p>
           </div>
         )}
-        {tooltip === 'share-link-copied' && (
+        {isCopied && (
           <div className='text-center text-xs'>
             <p className='font-bold'>Copied!</p>
           </div>
@@ -44,8 +37,8 @@ const ShareUrl: React.FC = (): JSX.Element => {
       <button
         className='rounded-md bg-white px-4 py-2'
         data-tip
-        data-tooltip-id={tooltip}
-        onClick={handleCopyUrl}
+        data-tooltip-id='share-link'
+        onClick={() => handleCopyToClipboard(url)}
       >
         <ShareIcon className='h-10 w-10' stroke='#000' />
       </button>

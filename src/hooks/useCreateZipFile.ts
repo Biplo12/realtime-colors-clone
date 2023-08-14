@@ -1,4 +1,5 @@
 import JSZip from 'jszip';
+import { useState } from 'react';
 import { useAppSelector } from 'store/store-hooks';
 
 import { hexToRgb } from '@/utils/colorUtils';
@@ -6,6 +7,7 @@ import { hexToRgb } from '@/utils/colorUtils';
 const BASE_URL = 'https://realtimecolors.com';
 
 const useCreateZipFile = () => {
+  const [isDownloaded, setIsDownloaded] = useState(false);
   const colors = useAppSelector((state) => state.global.colors);
   const colorsAsUrl =
     `${colors.textColor.color}-${colors.backgroundColor.color}-${colors.primaryColor.color}-${colors.secondaryColor.color}-${colors.accentColor.color}`.replaceAll(
@@ -85,9 +87,15 @@ Thanks for using RealtimeColors.com!
     downloadLink.href = URL.createObjectURL(blob);
     downloadLink.download = `${fileName}.zip`;
     downloadLink.click();
+
+    setIsDownloaded(true);
+
+    setTimeout(() => {
+      setIsDownloaded(false);
+    }, 1500);
   };
 
-  return { handleDownloadAsZip };
+  return { handleDownloadAsZip, isDownloaded };
 };
 
 export default useCreateZipFile;

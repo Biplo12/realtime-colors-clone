@@ -36,7 +36,7 @@ const ColorButton: React.FC<IColorButtonProps> = ({ item }): JSX.Element => {
       )}
       <button
         style={{ backgroundColor: btnBackgroundColor as string }}
-        className='relative flex min-w-[120px] items-center justify-center rounded-md border border-transparent px-6 py-4 hover:border-gray-600'
+        className='relative flex max-h-[65px] min-w-[120px] items-center justify-center rounded-md border border-transparent px-6 py-4 hover:border-gray-600'
         onClick={() => handleOpenColorPicker(label.toLowerCase())}
       >
         <p
