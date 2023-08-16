@@ -27,8 +27,8 @@ const LockColorButton: React.FC<ILockColorButtonProps> = ({
     <>
       {(buttonHover || isLocked) && (
         <button
-          className={`absolute bottom-1 right-1 p-[0.15rem] hover:rounded-md hover:bg-white hover:bg-opacity-50 ${
-            isLocked ? 'rounded-md bg-white bg-opacity-50' : ''
+          className={`absolute bottom-1 right-1 p-[0.125rem] hover:rounded-md hover:bg-white hover:bg-opacity-75 ${
+            isLocked ? 'rounded-md bg-white bg-opacity-75' : ''
           }`}
           onClick={handleChangeLockStatus}
         >

@@ -14,7 +14,7 @@ const useOnLoad = () => {
     (colorPicker) => colorPicker
   );
 
-  const url = new URL(window.location.href);
+  const url = new URL(window?.location?.href);
   const params = new URLSearchParams(url.search);
   const colorsQuery = params.get('colors');
   const areColorsNull = Object.values(colors).some(

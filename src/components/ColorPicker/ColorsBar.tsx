@@ -71,7 +71,7 @@ const ColorsBar: React.FC = (): JSX.Element => {
   ];
 
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='mxlg:flex-col flex flex-wrap gap-2'>
       {colorPickerItems.map((item, index) => (
         <ColorButton key={index} item={item} colors={colors} />
       ))}

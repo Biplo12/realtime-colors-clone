@@ -11,7 +11,7 @@ const Logo: React.FC = (): JSX.Element => {
         className='logo-spin h-10 w-10 duration-150 ease-linear'
       />
       <a
-        className='text-2xl font-bold'
+        className='mxlg:text-lg exsm:hidden text-2xl font-bold'
         style={{ color: textColor.color as string }}
         href='/'
       >

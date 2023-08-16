@@ -5,6 +5,7 @@ import PrimaryButton from '@/components/common/PrimaryButton';
 import NavbarItem from '@/components/Layout/Partials/NavbarItem';
 
 import Link from '~/svg/link.svg';
+import MenuIcon from '~/svg/menu.svg';
 const Navbar: React.FC = (): JSX.Element => {
   const textColor = useAppSelector((state) => state.global.colors.textColor);
   const primaryColor = useAppSelector(
@@ -26,8 +27,8 @@ const Navbar: React.FC = (): JSX.Element => {
     },
   ];
   return (
-    <nav className='flex h-16 items-center justify-between'>
-      <ul className='flex items-center gap-8'>
+    <nav className='flex h-12 items-center justify-between'>
+      <ul className='mxlg:hidden flex items-center gap-8'>
         {navlinks.map((link, index) => (
           <NavbarItem key={index} label={link.label} icon={link.icon} />
         ))}
@@ -37,6 +38,9 @@ const Navbar: React.FC = (): JSX.Element => {
           label='Subscribe'
         />
       </ul>
+      <button className='mxlg:flex exsm:ml-8 ml-2 hidden rounded-md bg-white bg-opacity-50 p-1'>
+        <MenuIcon className='h-6 w-6' fill={textColor.color as string} />
+      </button>
     </nav>
   );
 };
