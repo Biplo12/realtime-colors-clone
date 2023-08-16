@@ -6,10 +6,10 @@ import ExportInput from '@/components/common/ExportInput';
 const ExportCSV: React.FC = (): JSX.Element => {
   const colors = useAppSelector((state) => state.global.colors);
   const placeholderWithHash = Object.keys(colors).map((color) => {
-    return `${colors[color as keyof typeof colors].color}`;
+    return `${colors[color as keyof typeof colors].color},`;
   });
   const placeholderWithoutHash = Object.keys(colors).map((color) => {
-    return `${colors[color as keyof typeof colors].color?.slice(1)}`;
+    return `${colors[color as keyof typeof colors].color?.slice(1)},`;
   });
 
   return (

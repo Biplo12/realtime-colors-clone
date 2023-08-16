@@ -4,11 +4,8 @@ import { openDialog } from 'state/dialogSlice';
 import { randomizeColors, toggleDarkMode } from 'state/globalSlice';
 import { useAppDispatch } from 'store/store-hooks';
 
-import useCopyToClipboard from '@/hooks/useCopyToClipboard';
-
 const useToolbarController = () => {
   const dispatch = useAppDispatch();
-  const { handleCopyToClipboard } = useCopyToClipboard();
 
   useEffect(() => {
     const url = window.location.href;
@@ -25,6 +22,7 @@ const useToolbarController = () => {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === ' ') {
+        e.preventDefault();
         handleRandomizeColors();
       }
       if (e.ctrlKey && e.key === 'q') {
@@ -37,14 +35,14 @@ const useToolbarController = () => {
       }
       if (e.ctrlKey && e.key === 's') {
         e.preventDefault();
-        handleCopyToClipboard(url);
+        navigator.clipboard.writeText(url);
         toast.success('Copied to clipboard!');
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [dispatch, handleCopyToClipboard]);
+  }, [dispatch]);
 };
 
 export default useToolbarController;

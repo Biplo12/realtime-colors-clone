@@ -5,13 +5,18 @@ const Logo: React.FC = (): JSX.Element => {
   const textColor = useAppSelector((state) => state.global.colors.textColor);
   return (
     <div className='flex items-center justify-center gap-3'>
-      <img src='/images/logo.png' alt='logo' className='h-10 w-10' />
-      <h1
+      <img
+        src='/images/logo.png'
+        alt='logo'
+        className='logo-spin h-10 w-10 duration-150 ease-linear'
+      />
+      <a
         className='text-2xl font-bold'
         style={{ color: textColor.color as string }}
+        href='/'
       >
         Realtime Colors Clone
-      </h1>
+      </a>
     </div>
   );
 };
