@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import { useAppSelector } from 'store/store-hooks';
 
 import useOnLoad from '@/hooks/useOnload';
@@ -18,6 +19,7 @@ const Main: React.FC = (): JSX.Element => {
         color: colors.textColor.color as string,
       }}
     >
+      <Toaster position='top-center' reverseOrder={false} />
       {isDialogActive && <DialogController />}
       <ToolBar />
       <div

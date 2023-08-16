@@ -6,10 +6,12 @@ import LockIcon from '~/svg/lock.svg';
 
 interface ILockColorButtonProps {
   label: string;
+  buttonHover: boolean;
 }
 
 const LockColorButton: React.FC<ILockColorButtonProps> = ({
   label,
+  buttonHover,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
   const textColor = useAppSelector(
@@ -24,15 +26,18 @@ const LockColorButton: React.FC<ILockColorButtonProps> = ({
         .isLocked
   );
   return (
-    <button
-      className='absolute bottom-2 right-2'
-      onClick={handleChangeLockStatus}
-    >
-      <LockIcon
-        className={`h-4 w-4 ${!isLocked ? 'opacity-50' : 'opacity-100'}`}
-        stroke={textColor}
-      />
-    </button>
+    <>
+      {(buttonHover || isLocked) && (
+        <button
+          className={`absolute bottom-1 right-1 p-[0.15rem] hover:rounded-md hover:bg-white hover:bg-opacity-50 ${
+            isLocked ? 'rounded-md bg-white bg-opacity-50' : ''
+          }`}
+          onClick={handleChangeLockStatus}
+        >
+          <LockIcon className='h-4 w-4' stroke={textColor} />
+        </button>
+      )}
+    </>
   );
 };
 

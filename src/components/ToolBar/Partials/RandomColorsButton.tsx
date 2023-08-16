@@ -1,30 +1,28 @@
 import React from 'react';
-import { Tooltip } from 'react-tooltip';
 import { randomizeColors } from 'state/globalSlice';
 import { useAppDispatch } from 'store/store-hooks';
+
+import ToolBarButtonToolTip from '@/components/common/ToolbarButtonToolTip';
 
 import Reroll from '~/svg/reroll.svg';
 
 const RandomColorsButton: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
+
   const handleRandomizeColors = () => {
     dispatch(randomizeColors());
   };
 
   return (
     <>
-      <Tooltip id='randomize-colors' place='top'>
-        <div className='text-center text-xs'>
-          <p className='font-bold'>
-            Randomize
-            <br />
-            <span className='font-normal text-gray-400'>(colors)</span>
-          </p>
-        </div>
-      </Tooltip>
+      <ToolBarButtonToolTip
+        tooltipId='randomize-colors'
+        tooltipText='Randomize Colors'
+        toolTipShortcut='Spacebar'
+      />
       <button
         onClick={handleRandomizeColors}
-        className='h-[65px] rounded-md bg-white px-4 py-2'
+        className='rounded-md bg-white px-4 py-2'
         data-tip
         data-tooltip-id='randomize-colors'
       >

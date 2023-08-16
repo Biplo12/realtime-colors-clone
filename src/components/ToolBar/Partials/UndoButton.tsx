@@ -1,7 +1,8 @@
 import React from 'react';
-import { Tooltip } from 'react-tooltip';
 import { undoLastAction } from 'state/globalSlice';
 import { useAppDispatch, useAppSelector } from 'store/store-hooks';
+
+import ToolBarButtonToolTip from '@/components/common/ToolbarButtonToolTip';
 
 import UndoIcon from '~/svg/undo.svg';
 
@@ -15,15 +16,11 @@ const UndoButton: React.FC = (): JSX.Element => {
 
   return (
     <>
-      <Tooltip id='undo-action' place='top'>
-        <div className='text-center text-xs'>
-          <p className='font-bold'>
-            Undo
-            <br />
-            <span className='font-normal text-gray-400'>(Ctrl + Z)</span>
-          </p>
-        </div>
-      </Tooltip>
+      <ToolBarButtonToolTip
+        tooltipId='undo-action'
+        tooltipText='Undo'
+        toolTipShortcut='Ctrl+Z'
+      />
 
       <button
         className='flex h-14 w-[4.35rem] items-center justify-center rounded-md bg-white px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50'

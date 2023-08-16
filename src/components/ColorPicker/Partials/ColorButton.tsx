@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { openColorPicker } from 'state/globalSlice';
 import { useAppDispatch, useAppSelector } from 'store/store-hooks';
 
@@ -14,6 +14,7 @@ interface IColorButtonProps {
 }
 
 const ColorButton: React.FC<IColorButtonProps> = ({ item }): JSX.Element => {
+  const [buttonHover, setButtonHover] = useState<boolean>(false);
   const { label, btnBackgroundColor, colorPickerComponent } = item;
   const dispatch = useAppDispatch();
   const colorPickers = useAppSelector((state) => state.global.colorPickers);
@@ -26,7 +27,11 @@ const ColorButton: React.FC<IColorButtonProps> = ({ item }): JSX.Element => {
   };
 
   return (
-    <div className='relative flex flex-col items-center justify-center'>
+    <div
+      className='relative flex flex-col items-center justify-center'
+      onMouseEnter={() => setButtonHover(true)}
+      onMouseLeave={() => setButtonHover(false)}
+    >
       {colorPickers[
         `${label.toLowerCase()}Color` as keyof typeof colorPickers
       ] && (
@@ -34,9 +39,10 @@ const ColorButton: React.FC<IColorButtonProps> = ({ item }): JSX.Element => {
           {colorPickerComponent}
         </div>
       )}
+
       <button
         style={{ backgroundColor: btnBackgroundColor as string }}
-        className='relative flex max-h-[65px] min-w-[120px] items-center justify-center rounded-md border border-transparent px-6 py-4 hover:border-gray-600'
+        className='relative flex max-h-[65px] min-w-[145px] items-center justify-center rounded-md border border-transparent px-6 py-4 hover:border-gray-600'
         onClick={() => handleOpenColorPicker(label.toLowerCase())}
       >
         <p
@@ -48,7 +54,7 @@ const ColorButton: React.FC<IColorButtonProps> = ({ item }): JSX.Element => {
           {label}
         </p>
       </button>
-      <LockColorButton label={label} />
+      <LockColorButton label={label} buttonHover={buttonHover} />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { closeColorPickers, randomizeColors } from 'state/globalSlice';
 import { useAppDispatch, useAppSelector } from 'store/store-hooks';
 
 import useApplyColorsFromURL from '@/hooks/useApplyColorsFromURL';
+import useToolbarController from '@/hooks/useToolbarController';
 import useUpdateURL from '@/hooks/useUpdateURL';
 
 const useOnLoad = () => {
@@ -21,6 +22,7 @@ const useOnLoad = () => {
   );
   useUpdateURL();
   useApplyColorsFromURL();
+  useToolbarController();
 
   useEffect(() => {
     if (!colorsQuery && areColorsNull) {

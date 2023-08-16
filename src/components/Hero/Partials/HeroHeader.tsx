@@ -1,22 +1,26 @@
+import { gradientText } from 'linear-gradient-text';
 import React from 'react';
 import { useAppSelector } from 'store/store-hooks';
 
 import PrimaryButton from '@/components/common/PrimaryButton';
 
 import ScrollIcon from '~/svg/scroll.svg';
+
 const HeroHeader: React.FC = (): JSX.Element => {
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
-  const primaryColor = useAppSelector(
-    (state) => state.global.colors.primaryColor
-  );
-  const secondaryColor = useAppSelector(
-    (state) => state.global.colors.secondaryColor
-  );
+  const { textColor, secondaryColor, primaryColor, accentColor } =
+    useAppSelector((state) => state.global.colors);
+
+  gradientText({
+    primaryColor: primaryColor.color as string,
+    secondaryColor: accentColor.color as string,
+    direction: 'right',
+  });
+
   return (
     <div className='flex h-full flex-col items-start justify-center gap-10'>
       <h1 className='text-6xl font-bold'>
-        Visualize Your <span>Colors</span>
-        <br />
+        Visualize Your <span className='gradient-text'>Colors</span> <br />
         On a Real Website
       </h1>
       <p className='mb-4 text-2xl'>
@@ -37,13 +41,11 @@ const HeroHeader: React.FC = (): JSX.Element => {
         />
       </div>
       <div className='text-md flex items-center gap-3'>
-        <ScrollIcon
-          className='h-10 w-10'
-          stroke={primaryColor.color as string}
-        />
+        <ScrollIcon className='h-10 w-10' stroke={textColor.color as string} />
         <p>Scroll to see more sections</p>
       </div>
     </div>
   );
 };
+
 export default HeroHeader;

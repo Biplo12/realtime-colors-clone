@@ -8,14 +8,13 @@ import ShareIcon from '~/svg/share.svg';
 const ShareUrl: React.FC = (): JSX.Element => {
   const { isCopied, handleCopyToClipboard } = useCopyToClipboard();
   const url = window.location.href;
-
   return (
     <>
       <Tooltip
         id='share-link'
         place='top'
         style={{
-          backgroundColor: isCopied ? '#18AC7A' : '#333333',
+          backgroundColor: isCopied ? '#18AC7A' : '#000',
         }}
       >
         {!isCopied && (

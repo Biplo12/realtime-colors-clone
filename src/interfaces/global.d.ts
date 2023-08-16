@@ -20,3 +20,5 @@ declare interface IColors {
     isLocked: boolean;
   };
 }
+
+declare module 'linear-gradient-text';
