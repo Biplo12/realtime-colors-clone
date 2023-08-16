@@ -18,17 +18,17 @@ const HeroHeader: React.FC = (): JSX.Element => {
   });
 
   return (
-    <div className='flex h-full flex-col items-start justify-center gap-10'>
-      <h1 className='text-6xl font-bold'>
+    <div className='mxlg:w-full flex flex-col items-start justify-center gap-10'>
+      <h1 className='mxlg:text-[2rem] text-[3.35rem] font-bold leading-tight'>
         Visualize Your <span className='gradient-text'>Colors</span> <br />
         On a Real Website
       </h1>
-      <p className='mb-4 text-2xl'>
+      <p className='mxlg:text-[1.25rem] mb-4 text-2xl'>
         Choosing a color palette for your website?
         <br />
         Use the Toolbar below to realize your choices.
       </p>
-      <div className='flex justify-center gap-3'>
+      <div className='mxlg:flex-col mxlg:w-full flex justify-center gap-3'>
         <PrimaryButton
           label='Get Started'
           textColor={isDarkMode ? '#fff' : '#000'}

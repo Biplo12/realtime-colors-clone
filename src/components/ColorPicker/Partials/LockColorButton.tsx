@@ -14,12 +14,10 @@ const LockColorButton: React.FC<ILockColorButtonProps> = ({
   buttonHover,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
-  const textColor = useAppSelector(
-    (state) => state.global.colors.textColor.color
-  );
   const handleChangeLockStatus = () => {
     dispatch(changeLockStatus(`${label.toLocaleLowerCase()}Color`));
   };
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   const isLocked = useAppSelector(
     (state) =>
       state.global.colors[`${label.toLocaleLowerCase()}Color` as keyof IColors]
@@ -34,7 +32,7 @@ const LockColorButton: React.FC<ILockColorButtonProps> = ({
           }`}
           onClick={handleChangeLockStatus}
         >
-          <LockIcon className='h-4 w-4' stroke={textColor} />
+          <LockIcon className='h-4 w-4' color={isDarkMode ? '#fff' : '#000'} />
         </button>
       )}
     </>

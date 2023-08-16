@@ -6,29 +6,28 @@ import useOnLoad from '@/hooks/useOnload';
 
 import DialogController from '@/components/Dialogs/DialogController';
 import Hero from '@/components/Hero/Hero';
-import ToolBar from '@/components/ToolBar/ToolBar';
 const Main: React.FC = (): JSX.Element => {
   const { colors, handleCloseColorPickers } = useOnLoad();
   const isDialogActive =
     useAppSelector((state) => state.dialog.openedDialog) !== null;
   return (
-    <div
-      className='flex h-screen flex-col items-center justify-center'
-      style={{
-        backgroundColor: colors.backgroundColor.color as string,
-        color: colors.textColor.color as string,
-      }}
-    >
-      <Toaster position='top-center' reverseOrder={false} />
-      {isDialogActive && <DialogController />}
-      <ToolBar />
+    <>
+      <div className='absolute left-0 top-0 z-50'>
+        {/* <ToolBar /> */}
+        <Toaster position='top-center' reverseOrder={false} />
+        {isDialogActive && <DialogController />}
+      </div>
       <div
-        className='flex h-full w-full flex-col items-center justify-center'
+        className='z-10 flex min-h-screen flex-col items-center justify-center'
+        style={{
+          backgroundColor: colors.backgroundColor.color as string,
+          color: colors.textColor.color as string,
+        }}
         onClick={handleCloseColorPickers}
       >
         <Hero />
       </div>
-    </div>
+    </>
   );
 };
 export default Main;

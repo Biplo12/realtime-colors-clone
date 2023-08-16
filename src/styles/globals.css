@@ -27,3 +27,6 @@ body {
 .logo-spin:hover {
   animation: spin 0.3s linear;
 }
+.sketch-picker {
+  z-index: 9999 !important;
+}

@@ -13,7 +13,7 @@ const HeroMosaic: React.FC = (): JSX.Element => {
       viewBox='0 0 652 644'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className='w-[25%]'
+      className='max-h-[644px] w-full max-w-[652px]'
     >
       <rect
         opacity='0.05'
