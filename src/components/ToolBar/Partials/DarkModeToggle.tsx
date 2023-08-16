@@ -2,7 +2,7 @@ import React from 'react';
 import { toggleDarkMode } from 'state/globalSlice';
 import { useAppDispatch, useAppSelector } from 'store/store-hooks';
 
-import ToolBarButtonToolTip from '@/components/common/ToolbarButtonToolTip';
+import ToolBarButtonToolTip from '@/components/common/ToolBarButtonToolTip';
 
 import MoonIcon from '~/svg/moon.svg';
 import SunIcon from '~/svg/sun.svg';
