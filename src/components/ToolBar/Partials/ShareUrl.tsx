@@ -20,7 +20,7 @@ const ShareUrl: React.FC = (): JSX.Element => {
         {!isCopied && (
           <div className='text-center text-xs'>
             <p className='font-bold'>
-              Share link
+              Share Link
               <br />
               <span className='font-normal text-gray-400'>(CTRL + S)</span>
             </p>

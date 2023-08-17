@@ -21,4 +21,10 @@ declare interface IColors {
   };
 }
 
+declare interface IWhyCard {
+  title: string;
+  description: string;
+  icon: JSX.Element;
+}
+
 declare module 'linear-gradient-text';

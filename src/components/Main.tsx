@@ -7,6 +7,7 @@ import useOnLoad from '@/hooks/useOnload';
 import DialogController from '@/components/Dialogs/DialogController';
 import Hero from '@/components/Hero/Hero';
 import ToolBar from '@/components/ToolBar/ToolBar';
+import WhySection from '@/components/WhySection/WhySection';
 const Main: React.FC = (): JSX.Element => {
   const { colors, handleCloseColorPickers } = useOnLoad();
   const isDialogActive =
@@ -19,7 +20,7 @@ const Main: React.FC = (): JSX.Element => {
         {isDialogActive && <DialogController />}
       </div>
       <div
-        className='z-10 flex min-h-screen flex-col items-center justify-center px-4'
+        className='z-10 flex flex-col items-center justify-center px-4'
         style={{
           backgroundColor: colors.backgroundColor.color as string,
           color: colors.textColor.color as string,
@@ -27,6 +28,7 @@ const Main: React.FC = (): JSX.Element => {
         onClick={handleCloseColorPickers}
       >
         <Hero />
+        <WhySection />
       </div>
     </>
   );

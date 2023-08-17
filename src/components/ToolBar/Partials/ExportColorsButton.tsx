@@ -15,7 +15,7 @@ const ExportColorsButton: React.FC = (): JSX.Element => {
     <>
       <ToolBarButtonToolTip
         tooltipId='export-colors'
-        tooltipText='Export colors'
+        tooltipText='Export'
         toolTipShortcut='Ctrl+E'
       />
       <button

@@ -17,7 +17,7 @@ const RandomColorsButton: React.FC = (): JSX.Element => {
     <>
       <ToolBarButtonToolTip
         tooltipId='randomize-colors'
-        tooltipText='Randomize Colors'
+        tooltipText='Randomize'
         toolTipShortcut='Spacebar'
       />
       <button

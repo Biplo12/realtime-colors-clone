@@ -1,3 +1,4 @@
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { closeColorPickers, randomizeColors } from 'state/globalSlice';
 import { useAppDispatch, useAppSelector } from 'store/store-hooks';
@@ -13,10 +14,10 @@ const useOnLoad = () => {
   const isColorPickerOpen = Object.values(colorPickers).some(
     (colorPicker) => colorPicker
   );
+  const pathname = usePathname();
 
-  const url = new URL(window?.location?.href);
-  const params = new URLSearchParams(url.search);
-  const colorsQuery = params.get('colors');
+  const colorsQuery = pathname.split('?')[1]?.split('=')[1];
+
   const areColorsNull = Object.values(colors).some(
     (color) => color.color === null
   );
