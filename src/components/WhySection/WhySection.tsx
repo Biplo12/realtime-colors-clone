@@ -1,35 +1,35 @@
 import React from 'react';
 
+import RealisticIcon from '@/components/Icons/RealisticIcon';
+import SimpleIcon from '@/components/Icons/SimpleIcon';
+import TimeIcon from '@/components/Icons/TimeIcon';
 import WhyCard from '@/components/WhySection/Partials/WhyCard';
 
-import RealisticIcon from '~/svg/realistic.svg';
-import SimpleIcon from '~/svg/simple.svg';
-import TimeIcon from '~/svg/time.svg';
 const WhySection: React.FC = (): JSX.Element => {
   const whySectionCards = [
     {
       title: 'Saves time',
       description:
         'No need to spend hours implementing different variations of colors. Decide right away!',
-      icon: <TimeIcon className='h-[100px] w-[100px]' fill='#fff' />,
+      icon: <TimeIcon />,
     },
     {
       title: 'It`s Realistic',
       description:
         'Color Palettes make it hard to pick. This tool distributes the colors on a real website.',
-      icon: <RealisticIcon className='h-[100px] w-[100px]' fill='#fff' />,
+      icon: <RealisticIcon />,
     },
     {
       title: 'It`s simple',
       description:
         'Push a few buttons, and there you have it! Your very own branding colors, ready to export.',
-      icon: <SimpleIcon className='h-[100px] w-[100px]' fill='#fff' />,
+      icon: <SimpleIcon />,
     },
   ];
   return (
-    <div className='flex h-[80vh] w-full flex-col items-center justify-center gap-4'>
+    <div className='mxlg:w-full flex h-auto min-h-[80vh] w-3/4 flex-col items-center justify-center gap-4'>
       <h1 className='text-center text-3xl font-bold'>Why Realtime Colors?</h1>
-      <div className='mt-4 flex flex-col items-center justify-center gap-4 md:flex-row'>
+      <div className='mxlg:flex-col mxlg:gap-4 mt-4 flex w-full items-center justify-between gap-4'>
         {whySectionCards.map((card, index) => (
           <WhyCard key={index} card={card} />
         ))}

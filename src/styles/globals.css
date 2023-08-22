@@ -30,3 +30,13 @@ body {
 .sketch-picker {
   z-index: 9999 !important;
 }
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

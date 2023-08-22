@@ -1,16 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setColors } from 'state/globalSlice';
 import { useAppDispatch } from 'store/store-hooks';
 
 const useApplyColorsFromURL = () => {
   const dispatch = useAppDispatch();
-  const url = new URL(window.location.href);
-  const params = new URLSearchParams(url.search);
-  const colors = params.get('colors');
+  const [colorsQuery, setColorsQuery] = useState<string | null>(null);
 
   useEffect(() => {
-    const colorsArray = colors ? colors.split('-') : [];
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      const params = new URLSearchParams(url.search);
+      const urlColors = params.get('colors');
+      setColorsQuery(urlColors as string);
+    }
+  }, []);
+
+  useEffect(() => {
+    const colorsArray = colorsQuery ? colorsQuery.split('-') : [];
 
     const colorsIndexes = [
       'textColor',

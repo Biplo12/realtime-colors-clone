@@ -22,7 +22,7 @@ const ToolBar: React.FC = (): JSX.Element => {
   }, []);
 
   return (
-    <div className='w-full'>
+    <div className='z-50 w-full'>
       <div className='mxlg:hidden fixed bottom-6 left-1/2 flex h-[70px] w-full max-w-[1005px] -translate-x-1/2 transform items-center justify-center gap-2 rounded-md bg-[#737374] p-1.5'>
         <ColorsBar />
         <RandomColorsButton />

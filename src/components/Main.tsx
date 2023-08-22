@@ -5,6 +5,7 @@ import { useAppSelector } from 'store/store-hooks';
 import useOnLoad from '@/hooks/useOnload';
 
 import DialogController from '@/components/Dialogs/DialogController';
+import GridStats from '@/components/GridStats/GridStats';
 import Hero from '@/components/Hero/Hero';
 import ToolBar from '@/components/ToolBar/ToolBar';
 import WhySection from '@/components/WhySection/WhySection';
@@ -29,6 +30,7 @@ const Main: React.FC = (): JSX.Element => {
       >
         <Hero />
         <WhySection />
+        <GridStats />
       </div>
     </>
   );

@@ -1,27 +1,31 @@
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { closeColorPickers, randomizeColors } from 'state/globalSlice';
 import { useAppDispatch, useAppSelector } from 'store/store-hooks';
 
 import useApplyColorsFromURL from '@/hooks/useApplyColorsFromURL';
 import useToolbarController from '@/hooks/useToolbarController';
-import useUpdateURL from '@/hooks/useUpdateURL';
 
 const useOnLoad = () => {
+  const [colorsQuery, setColorsQuery] = useState<string | null>(null);
   const colors = useAppSelector((state) => state.global.colors);
   const dispatch = useAppDispatch();
   const colorPickers = useAppSelector((state) => state.global.colorPickers);
   const isColorPickerOpen = Object.values(colorPickers).some(
     (colorPicker) => colorPicker
   );
-  const pathname = usePathname();
 
-  const colorsQuery = pathname.split('?')[1]?.split('=')[1];
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      const params = new URLSearchParams(url.search);
+      const urlColors = params.get('colors');
+      setColorsQuery(urlColors as string);
+    }
+  }, []);
 
   const areColorsNull = Object.values(colors).some(
     (color) => color.color === null
   );
-  useUpdateURL();
   useApplyColorsFromURL();
   useToolbarController();
 

@@ -4822,11 +4822,6 @@ lilconfig@^2.1.0:
   resolved "https://registry.npmjs.org/lilconfig/-/lilconfig-2.1.0.tgz"
   integrity sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==
 
-linear-gradient-text@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/linear-gradient-text/-/linear-gradient-text-1.0.3.tgz#d7eb1258e8624708e5719f6ea7d1338a6f7ac5b4"
-  integrity sha512-sjrfLdRAGVPyTc884BngebNd/quSvABYiOnnu+W5fXU5Soea2gAE63/b+b3U/Sj4L/MwjsRAxQCd1vwXiXpQ3g==
-
 lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.1.6.tgz"
