@@ -9,6 +9,7 @@ import GridStats from '@/components/GridStats/GridStats';
 import Hero from '@/components/Hero/Hero';
 import ToolBar from '@/components/ToolBar/ToolBar';
 import WhySection from '@/components/WhySection/WhySection';
+import WorkSteps from '@/components/WorkSteps/WorkSteps';
 const Main: React.FC = (): JSX.Element => {
   const { colors, handleCloseColorPickers } = useOnLoad();
   const isDialogActive =
@@ -31,6 +32,7 @@ const Main: React.FC = (): JSX.Element => {
         <Hero />
         <WhySection />
         <GridStats />
+        <WorkSteps />
       </div>
     </>
   );
