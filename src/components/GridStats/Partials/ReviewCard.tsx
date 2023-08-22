@@ -21,7 +21,7 @@ const ReviewCard: React.FC<IReviewCardProps> = ({
 
   return (
     <div
-      className='mxlg:w-full mxlg:h-[25vh] col-span-2 col-start-4 row-start-3 flex h-[20vh] flex-col items-center justify-center rounded-xl text-center'
+      className='mxlg:w-full mxlg:h-[25vh] col-span-2 col-start-4 row-start-3 flex h-[20vh] flex-col items-center justify-center rounded-xl text-center shadow-lg'
       style={{
         backgroundColor: accentColor.color as string,
         color: !isDarkMode ? '#000' : '#fff',

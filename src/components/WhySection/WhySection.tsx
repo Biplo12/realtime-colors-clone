@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import RealisticIcon from '@/components/Icons/RealisticIcon';
 import SimpleIcon from '@/components/Icons/SimpleIcon';
@@ -31,7 +31,9 @@ const WhySection: React.FC = (): JSX.Element => {
       <h1 className='text-center text-3xl font-bold'>Why Realtime Colors?</h1>
       <div className='mxlg:flex-col mxlg:gap-4 mt-4 flex w-full items-center justify-between gap-4'>
         {whySectionCards.map((card, index) => (
-          <WhyCard key={index} card={card} />
+          <Fragment key={index}>
+            <WhyCard card={card} />
+          </Fragment>
         ))}
       </div>
     </div>

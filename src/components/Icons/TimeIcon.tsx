@@ -13,16 +13,16 @@ const TimeIcon: React.FC = (): JSX.Element => {
         fill={backgroundColor.color as string}
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M89.4669 8.85912L58.0465 63.9419L2.44746 41.7023C9.66585 17.5806 32.0298 0 58.5 0C69.872 0 80.4861 3.24483 89.4669 8.85912Z'
         fill={accentColor.color as string}
-        fill-opacity='0.6'
+        fillOpacity='0.6'
       />
       <path
         d='M81.5 22.5L57.1395 64.8489L32 53.5'
         stroke={textColor.color as string}
-        stroke-width='7.25581'
+        strokeWidth='7.25581'
       />
     </svg>
   );

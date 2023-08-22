@@ -32,8 +32,8 @@ const WhyCard: React.FC<IWhyCardProps> = ({ card }): JSX.Element => {
             {card.title}
           </h2>
           <span
-            className={`absolute bottom-0 left-1/2 z-10 w-[150px] -translate-x-1/2 transform opacity-50 duration-200 ease-linear ${
-              headerHovered ? 'h-4' : 'h-1'
+            className={`absolute bottom-0 left-1/2 z-10 w-[140px] -translate-x-1/2 transform opacity-50 duration-200 ease-linear ${
+              headerHovered ? 'h-5' : 'h-3'
             }`}
             style={{ backgroundColor: accentColor.color as string }}
           />

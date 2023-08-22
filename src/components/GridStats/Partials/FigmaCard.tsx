@@ -22,7 +22,7 @@ const FigmaCard: React.FC<IFigmaCardProps> = ({
   const { backgroundColor } = useAppSelector((state) => state.global.colors);
   return (
     <div
-      className='mxlg:w-full mxlg:h-[25vh] relative col-span-3 row-start-3 flex h-[20vh] flex-col items-center justify-center overflow-hidden rounded-xl text-center'
+      className='mxlg:w-full mxlg:h-[25vh] relative col-span-3 row-start-3 flex h-[20vh] flex-col items-center justify-center overflow-hidden rounded-xl text-center shadow-lg'
       style={{
         backgroundColor: !isDarkMode ? '#000' : '#fff',
         color: !isDarkMode ? '#fff' : '#000',

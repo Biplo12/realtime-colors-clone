@@ -13,7 +13,7 @@ const RealisticIcon: React.FC = (): JSX.Element => {
         width='33'
         height='33'
         fill={accentColor.color as string}
-        fill-opacity='0.6'
+        fillOpacity='0.6'
       />
       <rect
         x='69'
@@ -21,7 +21,7 @@ const RealisticIcon: React.FC = (): JSX.Element => {
         width='43'
         height='43'
         fill={textColor.color as string}
-        fill-opacity='0.2'
+        fillOpacity='0.2'
       />
       <rect
         x='20'

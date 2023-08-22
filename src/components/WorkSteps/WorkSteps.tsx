@@ -34,9 +34,9 @@ const WorkSteps: React.FC = (): JSX.Element => {
   ];
 
   return (
-    <div className='mxlg:w-full mxlg:mt-5 flex h-auto min-h-[80vh] w-3/4 flex-col items-center justify-start gap-4'>
+    <div className='mxlg:w-full mxlg:mt-5 flex h-auto min-h-[60vh] w-3/4 flex-col items-center justify-start gap-4'>
       <div
-        className='mxlg:w-full mxlg:flex-col mxlg:px-8 relative flex min-h-[400px] w-full items-start justify-between gap-6 rounded-md p-12 px-20'
+        className='mxlg:w-full mxlg:flex-col mxlg:px-8 relative flex min-h-[400px] w-full items-start justify-between gap-6 rounded-md p-12 px-20 shadow-lg'
         style={{
           backgroundColor: darkerBgHex,
         }}

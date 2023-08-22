@@ -4,9 +4,12 @@ import { useAppSelector } from 'store/store-hooks';
 
 import useOnLoad from '@/hooks/useOnload';
 
+import Articles from '@/components/Articles/Articles';
 import DialogController from '@/components/Dialogs/DialogController';
+import FAQ from '@/components/FAQ/FAQ';
 import GridStats from '@/components/GridStats/GridStats';
 import Hero from '@/components/Hero/Hero';
+import Plans from '@/components/Plans/Plans';
 import ToolBar from '@/components/ToolBar/ToolBar';
 import WhySection from '@/components/WhySection/WhySection';
 import WorkSteps from '@/components/WorkSteps/WorkSteps';
@@ -22,7 +25,7 @@ const Main: React.FC = (): JSX.Element => {
         {isDialogActive && <DialogController />}
       </div>
       <div
-        className='z-10 flex flex-col items-center justify-center px-4'
+        className='mxlg:px-12 z-10 flex flex-col items-center justify-center px-4'
         style={{
           backgroundColor: colors.backgroundColor.color as string,
           color: colors.textColor.color as string,
@@ -33,6 +36,9 @@ const Main: React.FC = (): JSX.Element => {
         <WhySection />
         <GridStats />
         <WorkSteps />
+        <Plans />
+        <FAQ />
+        <Articles />
       </div>
     </>
   );
