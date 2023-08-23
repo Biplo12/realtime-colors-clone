@@ -12,8 +12,8 @@ const GridStats: React.FC = (): JSX.Element => {
     element: null,
   });
   return (
-    <div className='mxlg:w-full h-auto min-h-[70vh] w-3/4'>
-      <div className='mxlg:flex mxlg:flex-col mt-5 grid w-full grid-cols-5 grid-rows-2 flex-col items-center justify-start gap-4'>
+    <div className='mxlg:w-full h-auto w-3/4'>
+      <div className='mxlg:flex mxlg:flex-col grid w-full grid-cols-5 grid-rows-2 flex-col items-center justify-start gap-4'>
         <UserNumberCard />
         <PriceCard />
         <FigmaCard

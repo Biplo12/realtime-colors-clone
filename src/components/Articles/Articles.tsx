@@ -18,9 +18,9 @@ const Articles: React.FC = (): JSX.Element => {
     },
   ];
   return (
-    <div className='mxlg:w-full flex h-auto min-h-[80vh] w-3/4 flex-col items-center justify-center gap-12'>
+    <div className='mxlg:w-full flex h-auto min-h-[40vh] w-3/4 flex-col items-center justify-center gap-12'>
       <ArticklesHeader />
-      <div className='flex w-full items-center justify-between gap-20'>
+      <div className='mxlg:flex-col mxlg:gap-12 flex w-full items-center justify-between gap-20'>
         {featuredArticles.map((article, index) => (
           <ArticleItem key={index} article={article} />
         ))}

@@ -27,9 +27,9 @@ const WhySection: React.FC = (): JSX.Element => {
     },
   ];
   return (
-    <div className='mxlg:w-full flex h-auto min-h-[80vh] w-3/4 flex-col items-center justify-center gap-4'>
+    <div className='mxlg:w-full flex h-auto w-3/4 flex-col items-center justify-center gap-4'>
       <h1 className='text-center text-3xl font-bold'>Why Realtime Colors?</h1>
-      <div className='mxlg:flex-col mxlg:gap-4 mt-4 flex w-full items-center justify-between gap-4'>
+      <div className='mxlg:flex-col mxlg:gap-4 flex w-full items-center justify-between gap-4'>
         {whySectionCards.map((card, index) => (
           <Fragment key={index}>
             <WhyCard card={card} />

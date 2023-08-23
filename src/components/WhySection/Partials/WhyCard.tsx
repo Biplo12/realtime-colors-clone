@@ -18,7 +18,7 @@ const WhyCard: React.FC<IWhyCardProps> = ({ card }): JSX.Element => {
 
   return (
     <div
-      className='mxlg:w-full relative flex min-h-[400px] flex-col items-center justify-center gap-6 rounded-md p-6 px-10'
+      className='mxlg:w-full relative flex min-h-[400px] flex-col items-center justify-center gap-6 rounded-md p-6 px-10 '
       style={{
         backgroundColor: darkerBgHex,
       }}

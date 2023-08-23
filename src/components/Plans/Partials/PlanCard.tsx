@@ -27,7 +27,7 @@ const PlanCard: React.FC<IPlanCardProps> = ({
   const { accentColor } = useAppSelector((state) => state.global.colors);
   return (
     <div
-      className='mxlg:w-full relative flex min-h-[550px] w-[500px] flex-col items-center justify-around gap-6 rounded-md p-6 px-12 text-center shadow-lg'
+      className='mxlg:w-full mxlg:min-h-[400px] relative flex min-h-[550px] w-[500px] flex-col items-center justify-around gap-6 rounded-md p-4 px-6 text-center'
       style={{ backgroundColor }}
     >
       <div className='flex flex-col items-center justify-start gap-5'>
@@ -52,10 +52,10 @@ const PlanCard: React.FC<IPlanCardProps> = ({
         {features.map((feature, index) => (
           <div className='flex items-center justify-center gap-6' key={index}>
             <CheckMarkIcon
-              className='h-8 w-8'
+              className='object-fit h-8 w-8'
               style={{ '--accent': accentColor.color as string }}
             />
-            <p className='text-center'>{feature}</p>
+            <p className='text-left'>{feature}</p>
           </div>
         ))}
       </div>

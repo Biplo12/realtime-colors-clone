@@ -11,7 +11,7 @@ const ArticleItem: React.FC<IArticleItemProps> = ({ article }): JSX.Element => {
   const { primaryColor } = useAppSelector((state) => state.global.colors);
   return (
     <button
-      className='flex w-full flex-col items-center justify-center gap-4 rounded-md py-8 opacity-75 shadow-lg transition-all duration-300 hover:opacity-100'
+      className='flex min-h-[85px] w-full flex-col items-center justify-center gap-4 rounded-md p-4 opacity-75 transition-all duration-300 hover:opacity-100'
       style={{
         backgroundColor: primaryColor.color as string,
       }}

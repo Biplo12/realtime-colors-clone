@@ -5,7 +5,7 @@ const UserNumberCard: React.FC = (): JSX.Element => {
   const { primaryColor } = useAppSelector((state) => state.global.colors);
   return (
     <div
-      className='mxlg:w-full mxlg:h-[25vh] col-span-4 row-span-2 flex h-[32.5vh] flex-col items-center justify-center rounded-xl text-center shadow-lg'
+      className='mxlg:w-full mxlg:h-[25vh] col-span-4 row-span-2 flex h-[32.5vh] flex-col items-center justify-center rounded-xl text-center '
       style={{
         backgroundColor: primaryColor.color as string,
         color: !isDarkMode ? '#000' : '#fff',

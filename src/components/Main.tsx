@@ -5,6 +5,7 @@ import { useAppSelector } from 'store/store-hooks';
 import useOnLoad from '@/hooks/useOnload';
 
 import Articles from '@/components/Articles/Articles';
+import Contact from '@/components/Contact/Contact';
 import DialogController from '@/components/Dialogs/DialogController';
 import FAQ from '@/components/FAQ/FAQ';
 import GridStats from '@/components/GridStats/GridStats';
@@ -25,7 +26,7 @@ const Main: React.FC = (): JSX.Element => {
         {isDialogActive && <DialogController />}
       </div>
       <div
-        className='mxlg:px-12 z-10 flex flex-col items-center justify-center px-4'
+        className='z-10 flex flex-col items-center justify-center gap-32 px-4'
         style={{
           backgroundColor: colors.backgroundColor.color as string,
           color: colors.textColor.color as string,
@@ -39,6 +40,7 @@ const Main: React.FC = (): JSX.Element => {
         <Plans />
         <FAQ />
         <Articles />
+        <Contact />
       </div>
     </>
   );
