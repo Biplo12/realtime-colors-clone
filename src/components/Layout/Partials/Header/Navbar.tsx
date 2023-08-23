@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppSelector } from 'store/store-hooks';
 
 import PrimaryButton from '@/components/common/PrimaryButton';
-import NavbarItem from '@/components/Layout/Partials/NavbarItem';
+import NavbarItem from '@/components/Layout/Partials/Header/NavbarItem';
 
 import Link from '~/svg/link.svg';
 import MenuIcon from '~/svg/menu.svg';
