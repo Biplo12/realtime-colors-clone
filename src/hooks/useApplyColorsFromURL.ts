@@ -1,20 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { setColors } from 'state/globalSlice';
 import { useAppDispatch } from 'store/store-hooks';
 
 const useApplyColorsFromURL = () => {
   const dispatch = useAppDispatch();
-  const [colorsQuery, setColorsQuery] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      const params = new URLSearchParams(url.search);
-      const urlColors = params.get('colors');
-      setColorsQuery(urlColors as string);
-    }
-  }, []);
+  let colorsQuery: string | undefined;
+  if (typeof window !== 'undefined') {
+    colorsQuery = window?.location?.search;
+  }
 
   useEffect(() => {
     const colorsArray = colorsQuery ? colorsQuery.split('-') : [];
@@ -29,11 +24,12 @@ const useApplyColorsFromURL = () => {
 
     const colorsObject = colorsArray.reduce((acc, color, index) => {
       acc[colorsIndexes[index]] = {
-        color: `#${color}`,
+        color: `#${color.replaceAll('%23', '')}`,
         isLocked: false,
       };
       return acc;
     }, {} as Record<string, { color: string; isLocked: boolean }>);
+
     if (Object.keys(colorsObject).length) {
       dispatch(setColors(colorsObject));
     }

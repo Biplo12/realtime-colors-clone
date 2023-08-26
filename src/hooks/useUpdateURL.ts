@@ -7,7 +7,6 @@ const useUpdateURL = () => {
   const selectedColors = Object.keys(colors).filter(
     (color) => colors[color as keyof typeof colors]
   );
-
   const queryParams = selectedColors
     .map((color) => {
       const colorValue = colors[color as keyof typeof colors].color;
@@ -15,7 +14,9 @@ const useUpdateURL = () => {
     })
     .join('-');
 
-  router.push(`/?colors=${queryParams.replaceAll('%23', '')}`);
+  if (typeof window !== 'undefined') {
+    router.push(`/?colors=${queryParams.replaceAll('%23', '')}`);
+  }
 };
 
 export default useUpdateURL;
