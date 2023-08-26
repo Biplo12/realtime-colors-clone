@@ -27,7 +27,7 @@ const FooterSocialLinks: React.FC = (): JSX.Element => {
     },
   ];
   return (
-    <nav className='flex h-12 flex-col items-start justify-between gap-8'>
+    <nav className='flex flex-col items-start justify-between gap-8'>
       <h1
         className='text-xl font-bold'
         style={{ color: textColor.color as string }}

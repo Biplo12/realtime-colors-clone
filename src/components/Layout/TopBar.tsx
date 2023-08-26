@@ -4,17 +4,21 @@ const TopBar: React.FC = (): JSX.Element => {
   const { primaryColor, secondaryColor } = useAppSelector(
     (state) => state.global.colors
   );
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   return (
     <div
       className='mxlg:h-12 flex h-10 w-full items-center justify-center p-4 text-center'
-      style={{ backgroundColor: primaryColor.color as string }}
+      style={{
+        backgroundColor: primaryColor.color as string,
+        color: isDarkMode ? '#fff' : '#000',
+      }}
     >
       <h1>
         Original application can be found at{' '}
         <a
           href='https://realtimecolors.com/'
-          className='font-bold hover:underline'
-          style={{ color: secondaryColor.color as string }}
+          className='border-b font-bold'
+          style={{ borderColor: secondaryColor.color as string }}
           target='_blank'
           rel='noreferrer'
         >
