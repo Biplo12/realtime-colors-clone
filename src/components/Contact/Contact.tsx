@@ -6,7 +6,7 @@ import ContactHeader from '@/components/Contact/Partials/ContactHeader';
 const Contact: React.FC = (): JSX.Element => {
   const { primaryColor } = useAppSelector((state) => state.global.colors);
   return (
-    <div className='flex flex-col items-center justify-center gap-10'>
+    <div className='flex flex-col items-center justify-center gap-10 text-center'>
       <ContactHeader />
       <PrimaryButton
         label='Stay Tuned'

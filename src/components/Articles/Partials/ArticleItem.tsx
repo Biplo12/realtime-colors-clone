@@ -16,7 +16,7 @@ const ArticleItem: React.FC<IArticleItemProps> = ({ article }): JSX.Element => {
         backgroundColor: primaryColor.color as string,
       }}
     >
-      <h1>{article.title}</h1>
+      <h1 className='text-center text-xl'>{article.title}</h1>
     </button>
   );
 };
