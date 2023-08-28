@@ -21,7 +21,7 @@ To run the project, follow these steps:
 1. Clone the repository:
 
    ```
-   git clone [repository_url]
+   git clone [[repository_url]](https://github.com/Biplo12/realtime-colors-clone)
    ```
 
 2. Navigate to the project directory:
