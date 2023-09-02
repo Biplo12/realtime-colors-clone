@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tooltip } from 'react-tooltip';
 
 import useCopyToClipboard from '@/hooks/useCopyToClipboard';
@@ -7,12 +7,11 @@ import ShareIcon from '~/svg/share.svg';
 
 const ShareUrl: React.FC = (): JSX.Element => {
   const { isCopied, handleCopyToClipboard } = useCopyToClipboard();
-  const [url, setUrl] = React.useState<string>('');
+  const [url, setUrl] = useState<string>('');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      setUrl(url.href);
+      setUrl(window.location.href);
     }
   }, []);
 
